@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#03050c">
+<title>AstroVerse — Explore Beyond Imagination</title>
+
+<style>
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: #03050c;
+}
+
+body {
+  margin: 0;
+  background: #03050c;
+  color: #f5f5ff;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+#universe {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  max-width: 1440px;
+  margin: auto;
+  padding: 28px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.brand span { color: #a99cff; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.label {
+  font-size: 10px;
+  color: #a0a5bd;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#motion {
+  padding: 10px 16px;
+  border: 1px solid #ffffff30;
+  border-radius: 50px;
+  background: #101426aa;
+  color: #e1e1f5;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: calc(100svh - 95px);
+  max-width: 1440px;
+  margin: auto;
+  padding: 80px 6% 110px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-copy { max-width: 640px; }
+
+.eyebrow {
+  color: #b9b2ff;
+  margin: 0 0 24px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(56px, 6.5vw, 96px);
+  line-height: 1.03;
+  font-weight: 650;
+  letter-spacing: -.065em;
+  text-shadow: 0 3px 40px #03050c;
+}
+
+h1 em {
+  color: #c9beff;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 360px;
+  margin: 28px 0 32px;
+  color: #b0b7ce;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 24px;
+  border: 1px solid #ffffff35;
+  border-radius: 50px;
+  background: #ffffff09;
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    #ffffff18 50%,
+    transparent 75%
+  );
+  transform: translateX(-150%);
+  animation: buttonShine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #a99cff25;
+}
+
+.hint {
+  margin-top: 45px;
+  color: #8e97b2;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hint span {
+  display: inline-block;
+  animation: arrowFloat 2s ease-in-out infinite;
+}
+
+.discover {
+  position: relative;
+  padding: 100px 6%;
+  background: linear-gradient(
+    #03050c00,
+    #03050cb0 20%,
+    #03050cd9
+  );
+}
+
+.inner {
+  max-width: 1260px;
+  margin: auto;
+}
+
+h2 {
+  margin: 0 0 48px;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  font-weight: 550;
+  letter-spacing: -.05em;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  perspective: 1200px;
+}
+
+.card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 30%;
+  --accent: 193, 157, 112;
+
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding: 16px 25px 28px;
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #ffffff1d;
+  border-radius: 24px;
+  background: linear-gradient(150deg, #111729ed, #070b15ed);
+
+  transform: perspective(900px)
+    rotateX(var(--rx))
+    rotateY(var(--ry));
+
+  transition:
+    transform .18s ease-out,
+    border-color .3s,
+    box-shadow .3s;
+}
+
+.card:nth-child(2) { --accent: 88, 172, 255; }
+.card:nth-child(3) { --accent: 224, 195, 137; }
+.card:nth-child(4) { --accent: 102, 133, 255; }
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at var(--mx) var(--my),
+    rgba(var(--accent), .18),
+    transparent 65%
+  );
+
+  opacity: .3;
+  transition: opacity .3s;
+}
+
+.card:hover::before { opacity: 1; }
+
+.card:hover {
+  border-color: rgba(var(--accent), .55);
+  box-shadow:
+    0 20px 60px #00000050,
+    0 0 35px rgba(var(--accent), .1);
+}
+
+.planet-canvas {
+  display: block;
+  width: 100%;
+  height: 230px;
+}
+
+.planet-name {
+  margin: 0 0 14px;
+  color: #939fb8;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.planet-name::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: rgb(var(--accent));
+  box-shadow: 0 0 8px rgba(var(--accent), .8);
+  animation: signalPulse 3s ease-in-out infinite;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+}
+
+.card p:not(.planet-name) {
+  margin: 0 0 25px;
+  color: #a0abc2;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.card a {
+  margin-top: auto;
+  font-size: 13px;
+  color: #c9c2ff;
+  text-decoration: none;
+}
+
+.card a span {
+  display: inline-block;
+  transition: transform .25s;
+}
+
+.card a:hover span { transform: translate(4px, -4px); }
+
+.closing {
+  padding: 95px 24px 110px;
+  text-align: center;
+  background: #03050cda;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 6%;
+  border-top: 1px solid #ffffff12;
+  background: #03050c;
+  color: #818ca3;
+  font-size: 12px;
+}
+
+.reveal {
+  transition: opacity .8s ease, translate .8s ease;
+}
+
+.reveal.waiting {
+  opacity: 0;
+  translate: 0 35px;
+}
+
+.reveal.visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+body.paused *,
+body.paused *::before,
+body.paused *::after {
+  animation-play-state: paused !important;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #c9beff;
+  outline-offset: 5px;
+}
+
+@keyframes buttonShine {
+  0%, 55% { transform: translateX(-150%); }
+  85%, 100% { transform: translateX(150%); }
+}
+
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes signalPulse {
+  0%, 100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 1050px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 650px) {
+  header { padding: 24px 6%; }
+  .label { display: none; }
+
+  .hero {
+    min-height: 930px;
+    padding-top: 55px;
+    align-items: flex-start;
+  }
+
+  h1 { font-size: clamp(54px, 12vw, 76px); }
+  .intro { max-width: 310px; }
+  .cards { grid-template-columns: 1fr; }
+  .planet-canvas { height: 260px; }
+  .discover { padding-top: 65px; }
+  footer { flex-direction: column; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<canvas id="universe" aria-hidden="true"></canvas>
+
+<header>
+  <a class="brand" href="#home">AstroVerse<span>.</span></a>
+
+  <div class="header-right">
+    <span class="label">A universe of possibilities</span>
+    <button id="motion" type="button">Pause motion</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <p class="eyebrow">Explore beyond imagination</p>
+
+      <h1>
+        Let curiosity<br>
+        take you <em>further.</em>
+      </h1>
+
+      <p class="intro">
+        From familiar worlds to distant possibilities,
+        your next discovery starts here.
+      </p>
+
+      <a class="button" href="#discover">
+        Begin exploring <span aria-hidden="true">↗</span>
+      </a>
+
+      <p class="hint">
+        Scroll to discover more <span aria-hidden="true">↓</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="discover" id="discover">
+    <div class="inner">
+      <div class="reveal">
+        <p class="eyebrow">Choose your next journey</p>
+        <h2>There is more<br>out there.</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <canvas
+            class="planet-canvas"
+            data-planet="jupiter"
+            role="img"
+            aria-label="Rotating Jupiter with an orbiting moon"
+          ></canvas>
+          <p class="planet-name">01 / Jupiter</p>
+          <h3>Solar System</h3>
+          <p>Follow eight worlds around the star we call home.</p>
+          <a href="solar-system.html">
+            Explore the system <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <canvas
+            class="planet-canvas"
+            data-planet="earth"
+            role="img"
+            aria-label="Rotating Earth with clouds and an orbiting moon"
+          ></canvas>
+          <p class="planet-name">02 / Earth</p>
+          <h3>Planet Explorer</h3>
+          <p>Look closer at the details that make each planet distinct.</p>
+          <a href="planet-explorer.html">
+            Discover a planet <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <canvas
+            class="planet-canvas"
+            data-planet="saturn"
+            role="img"
+            aria-label="Rotating Saturn with layered rings and an orbiting moon"
+          ></canvas>
+          <p class="planet-name">03 / Saturn</p>
+          <h3>Space Missions</h3>
+          <p>Follow extraordinary journeys and challenge your knowledge.</p>
+          <a href="space-missions.html">
+            Take the challenge <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <canvas
+            class="planet-canvas"
+            data-planet="neptune"
+            role="img"
+            aria-label="Rotating Neptune with atmospheric bands and an orbiting moon"
+          ></canvas>
+          <p class="planet-name">04 / Neptune</p>
+          <h3>Cosmic Discoveries</h3>
+          <p>Find unexpected stories written across the universe.</p>
+          <a href="cosmic-discoveries.html">
+            Follow your curiosity <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="reveal">
+      <p class="eyebrow">Keep looking up</p>
+      <h2>The next discovery<br>could change your perspective.</h2>
+      <a class="button" href="#home">Back to the stars ↑</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>AstroVerse — Explore Beyond Imagination.</p>
+  <p>Visual effects preview · Ayush</p>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const TAU = Math.PI * 2;
+  const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+  const mix = (a, b, t) => a.map((value, i) => value + (b[i] - value) * t);
+
+  let seed = 7291;
+
+  function random() {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 4294967296;
+  }
+
+  function normal() {
+    return Math.sqrt(-2 * Math.log(Math.max(random(), 0.00001))) *
+      Math.cos(TAU * random());
+  }
+
+  function glow(ctx, x, y, radius, stops) {
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+
+    for (const [position, color] of stops) {
+      gradient.addColorStop(position, color);
+    }
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+  }
+
+  const universe = document.getElementById("universe");
+  const space = universe.getContext("2d");
+  const motionButton = document.getElementById("motion");
+  const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+
+  if (!space) {
+    motionButton.hidden = true;
+    return;
+  }
+
+  let running = !motionPreference.matches;
+  let width = innerWidth;
+  let height = innerHeight;
+  let elapsed = 0;
+  let lastTime = 0;
+  let lastPlanetTime = -1;
+  let frame = 0;
+  let nextMeteor = 1;
+
+  const pointer = { x: 0, y: 0 };
+  const camera = { x: 0, y: 0 };
+  const meteors = [];
+
+  window.addEventListener("pointermove", event => {
+    if (!finePointer.matches || !running || motionPreference.matches) return;
+    pointer.x = event.clientX / innerWidth - .5;
+    pointer.y = event.clientY / innerHeight - .5;
+  }, { passive: true });
+
+  document.documentElement.addEventListener("pointerleave", () => {
+    pointer.x = 0;
+    pointer.y = 0;
+  });
+
+  // Detailed spiral galaxy texture.
+  const galaxy = document.createElement("canvas");
+  galaxy.width = galaxy.height = 1500;
+  const gc = galaxy.getContext("2d");
+  const mid = 750;
+
+  gc.globalCompositeOperation = "lighter";
+
+  glow(gc, mid, mid, 700, [
+    [0, "rgba(167,134,220,.15)"],
+    [.5, "rgba(61,94,173,.08)"],
+    [1, "rgba(0,0,0,0)"]
+  ]);
+
+  for (let i = 0; i < 23000; i++) {
+    const r = Math.pow(random(), .72) * 650;
+    const f = r / 650;
+    const arm = Math.floor(random() * 4);
+
+    const theta =
+      arm * TAU / 4 +
+      f * 7.8 +
+      normal() * (.12 + .17 * (1 - f));
+
+    const jitter = normal() * (4 + f * 12);
+    const x = mid + Math.cos(theta) * (r + jitter);
+    const y = mid + Math.sin(theta) * (r + jitter);
+
+    if (i % 8 === 0) {
+      glow(gc, x, y, 15 + random() * 25, [
+        [0, f > .3
+          ? "rgba(110,146,255,.03)"
+          : "rgba(255,203,157,.04)"],
+        [1, "rgba(0,0,0,0)"]
+      ]);
+    }
+
+    const alpha = (.2 + random() * .65) * (1 - f * .5);
+
+    gc.fillStyle = f < .25
+      ? `rgba(255,228,190,${alpha})`
+      : `rgba(${170 + Math.floor(random() * 65)},200,255,${alpha})`;
+
+    gc.beginPath();
+    gc.arc(x, y, .35 + Math.pow(random(), 4) * 1.8, 0, TAU);
+    gc.fill();
+  }
+
+  for (let i = 0; i < 5000; i++) {
+    const r = Math.pow(random(), 1.8) * 210;
+    const theta = random() * TAU;
+
+    gc.fillStyle = `rgba(255,233,203,${.15 + random() * .4})`;
+    gc.fillRect(
+      mid + Math.cos(theta) * r,
+      mid + Math.sin(theta) * r,
+      1, 1
+    );
+  }
+
+  glow(gc, mid, mid, 220, [
+    [0, "rgba(255,251,232,.98)"],
+    [.09, "rgba(255,236,211,.85)"],
+    [.32, "rgba(255,206,167,.32)"],
+    [.7, "rgba(187,138,204,.07)"],
+    [1, "rgba(0,0,0,0)"]
+  ]);
+
+  const stars = Array.from({ length: 340 }, () => ({
+    x: random(),
+    y: random(),
+    radius: .3 + random() * 1.2,
+    alpha: .2 + random() * .6,
+    phase: random() * TAU,
+    depth: .3 + random()
+  }));
+
+  function updateMeteors(delta) {
+    if (elapsed > nextMeteor) {
+      meteors.push({
+        x: width * (.2 + random() * .8),
+        y: height * random() * .45,
+        vx: -350 - random() * 240,
+        vy: 180 + random() * 140,
+        age: 0,
+        life: 1.1 + random() * .6
+      });
+
+      nextMeteor = elapsed + 2 + random() * 3;
+    }
+
+    for (let i = meteors.length - 1; i >= 0; i--) {
+      const meteor = meteors[i];
+      meteor.age += delta;
+      meteor.x += meteor.vx * delta;
+      meteor.y += meteor.vy * delta;
+
+      if (meteor.age > meteor.life) {
+        meteors.splice(i, 1);
+      }
+    }
+  }
+
+  function drawMeteors() {
+    space.save();
+    space.globalCompositeOperation = "lighter";
+
+    for (const meteor of meteors) {
+      const fade = Math.sin(Math.PI * meteor.age / meteor.life);
+      const tailX = meteor.x - meteor.vx * .22;
+      const tailY = meteor.y - meteor.vy * .22;
+
+      const gradient = space.createLinearGradient(
+        tailX, tailY, meteor.x, meteor.y
+      );
+
+      gradient.addColorStop(0, "rgba(130,160,255,0)");
+      gradient.addColorStop(1, `rgba(225,237,255,${fade * .8})`);
+
+      space.strokeStyle = gradient;
+      space.lineWidth = 1.5;
+      space.beginPath();
+      space.moveTo(tailX, tailY);
+      space.lineTo(meteor.x, meteor.y);
+      space.stroke();
+
+      glow(space, meteor.x, meteor.y, 6, [
+        [0, `rgba(240,247,255,${fade})`],
+        [1, "rgba(160,190,255,0)"]
+      ]);
+    }
+
+    space.restore();
+  }
+
+  function drawSpace() {
+    space.fillStyle = "#03050c";
+    space.fillRect(0, 0, width, height);
+
+    const mobile = width < 650;
+    const x = (mobile ? width * .52 : width * .76) + camera.x * 24;
+    const y = (mobile ? height * .77 : height * .52) + camera.y * 18;
+
+    const size = mobile
+      ? Math.min(width * 1.7, 850)
+      : Math.min(width * .94, height * 1.65);
+
+    glow(space, x, y, size * .65, [
+      [0, "rgba(57,46,112,.2)"],
+      [.5, "rgba(20,28,64,.1)"],
+      [1, "rgba(0,0,0,0)"]
+    ]);
+
+    for (const star of stars) {
+      const alpha = star.alpha *
+        (.75 + .25 * Math.sin(elapsed * 1.2 + star.phase));
+
+      const sx = star.x * width + camera.x * star.depth * 25;
+      const sy = star.y * height + camera.y * star.depth * 20;
+
+      space.fillStyle = `rgba(212,225,255,${alpha})`;
+      space.beginPath();
+      space.arc(sx, sy, star.radius, 0, TAU);
+      space.fill();
+    }
+
+    space.save();
+    space.translate(x, y);
+    space.rotate(-.33);
+    space.scale(1, .53);
+    space.rotate(elapsed * .065);
+    space.globalCompositeOperation = "lighter";
+    space.drawImage(galaxy, -size / 2, -size / 2, size, size);
+    space.restore();
+
+    if (!mobile) {
+      const shade = space.createLinearGradient(0, 0, width * .66, 0);
+      shade.addColorStop(0, "rgba(3,5,12,.95)");
+      shade.addColorStop(.55, "rgba(3,5,12,.65)");
+      shade.addColorStop(1, "rgba(3,5,12,0)");
+      space.fillStyle = shade;
+      space.fillRect(0, 0, width * .66, height);
+    }
+
+    drawMeteors();
+  }
+
+  // Procedural planet surfaces.
+  const TW = 512;
+  const TH = 256;
+
+  function wave(u, v) {
+    return (
+      Math.sin(u * 3 + Math.sin(v * 5) * 1.8) +
+      .5 * Math.sin(u * 7 - v * 9) +
+      .25 * Math.sin(u * 15 + v * 17) +
+      .12 * Math.sin(u * 31 - v * 27)
+    ) / 1.87;
+  }
+
+  function makeTexture(type) {
+    const texture = new Uint8ClampedArray(TW * TH * 3);
+
+    for (let y = 0; y < TH; y++) {
+      const lat = (y / (TH - 1) - .5) * Math.PI;
+
+      for (let x = 0; x < TW; x++) {
+        const lon = x / TW * TAU;
+        const noise = wave(lon, lat);
+        let color;
+
+        if (type === "earth") {
+          const land =
+            Math.sin(lon * 2 + Math.sin(lat * 3) * 2) * .45 +
+            Math.cos(lon * 3 - lat * 4) * .3 +
+            noise * .38;
+
+          if (Math.abs(lat) > 1.28 + noise * .1) {
+            color = [212, 227, 234];
+          } else if (land > .23) {
+            const dry = clamp(.5 + noise + Math.abs(lat) * .15, 0, 1);
+            color = mix([35, 91, 58], [170, 153, 99], dry);
+          } else {
+            color = mix(
+              [10, 44, 91],
+              [30, 103, 153],
+              (noise + 1) * .5
+            );
+          }
+
+          const clouds = clamp(
+            (wave(lon + .7, lat * 1.6) +
+            .23 * Math.sin(lon * 11 + lat * 19) - .22) * 1.7,
+            0, .85
+          );
+
+          color = mix(color, [240, 246, 251], clouds);
+        } else if (type === "jupiter") {
+          const bands = Math.sin(lat * 33 + noise * 1.5) * .5 + .5;
+          color = mix([140, 95, 69], [232, 215, 181], bands);
+
+          color = mix(
+            color, [245, 232, 210],
+            clamp(noise * .25, 0, .22)
+          );
+
+          const dx = Math.atan2(
+            Math.sin(lon - 1.5),
+            Math.cos(lon - 1.5)
+          );
+
+          const spot = (dx / .26) ** 2 + ((lat - .35) / .14) ** 2;
+
+          if (spot < 1) {
+            color = mix(color, [170, 82, 49], (1 - spot) * .85);
+          }
+        } else if (type === "saturn") {
+          const bands = .5 + .5 * Math.sin(lat * 47 + noise * .65);
+
+          color = mix(
+            [169, 149, 108],
+            [233, 218, 177],
+            bands * .7 + .15
+          );
+        } else {
+          const bands = .5 + .5 * Math.sin(lat * 24 + noise * 1.3);
+          color = mix([22, 56, 126], [62, 125, 197], bands);
+
+          const dx = Math.atan2(
+            Math.sin(lon - 2),
+            Math.cos(lon - 2)
+          );
+
+          const storm = (dx / .25) ** 2 + ((lat - .3) / .12) ** 2;
+
+          if (storm < 1) {
+            color = mix(color, [14, 32, 76], (1 - storm) * .8);
+          }
+
+          color = mix(
+            color,
+            [193, 220, 247],
+            clamp((noise - .5) * .5, 0, .18)
+          );
+        }
+
+        const grain = (random() - .5) * 9;
+        const index = (y * TW + x) * 3;
+
+        texture[index] = color[0] + grain;
+        texture[index + 1] = color[1] + grain;
+        texture[index + 2] = color[2] + grain;
+      }
+    }
+
+    return texture;
+  }
+
+  // Sphere geometry and fixed directional lighting.
+  const S = 144;
+  const sphereMap = [];
+
+  for (let y = 0; y < S; y++) {
+    for (let x = 0; x < S; x++) {
+      const nx = (x + .5 - S / 2) / (S / 2);
+      const ny = (y + .5 - S / 2) / (S / 2);
+      const distance = nx * nx + ny * ny;
+
+      if (distance > 1) continue;
+
+      const nz = Math.sqrt(1 - distance);
+      const longitude = Math.atan2(nx, nz);
+      const latitude = Math.asin(ny);
+      const light = Math.max(0, nx * -.55 + ny * -.35 + nz * .76);
+
+      sphereMap.push({
+        index: (y * S + x) * 4,
+        u: longitude / TAU + .5,
+        v: clamp(
+          Math.floor((latitude / Math.PI + .5) * (TH - 1)),
+          0, TH - 1
+        ),
+        light: .055 + .945 * Math.pow(light, .85),
+        rim: Math.pow(1 - nz, 4) * light,
+        alpha: clamp(
+          (1 - Math.sqrt(distance)) * S / 2,
+          0, 1
+        ) * 255
+      });
+    }
+  }
+
+  const planets = [
+    ...document.querySelectorAll(".planet-canvas")
+  ].map((canvas, index) => {
+    const type = canvas.dataset.planet;
+    const buffer = document.createElement("canvas");
+    buffer.width = buffer.height = S;
+
+    return {
+      canvas,
+      ctx: canvas.getContext("2d"),
+      type,
+      texture: makeTexture(type),
+      buffer,
+      bufferCtx: buffer.getContext("2d"),
+      image: new ImageData(S, S),
+      phase: index * 1.5,
+      visible: true,
+      width: 0,
+      height: 0,
+      dust: Array.from({ length: 20 }, () => ({
+        phase: random() * TAU,
+        radius: .65 + random() * .45,
+        size: .4 + random() * 1.1
+      }))
+    };
+  });
+
+  function renderSphere(planet) {
+    const data = planet.image.data;
+
+    const rotation =
+      elapsed * (planet.type === "earth" ? .045 : .055) +
+      planet.phase / TAU;
+
+    for (const pixel of sphereMap) {
+      const u = ((pixel.u + rotation) % 1 + 1) % 1;
+      const tx = Math.floor(u * TW);
+      const source = (pixel.v * TW + tx) * 3;
+
+      const atmosphere =
+        planet.type === "earth" || planet.type === "neptune";
+
+      const rim = atmosphere ? pixel.rim : 0;
+
+      data[pixel.index] =
+        planet.texture[source] * pixel.light + rim * 35;
+
+      data[pixel.index + 1] =
+        planet.texture[source + 1] * pixel.light + rim * 100;
+
+      data[pixel.index + 2] =
+        planet.texture[source + 2] * pixel.light + rim * 170;
+
+      data[pixel.index + 3] = pixel.alpha;
+    }
+
+    planet.bufferCtx.putImageData(planet.image, 0, 0);
+  }
+
+  function drawRings(ctx, radius, front) {
+    const start = front ? 0 : Math.PI;
+    const end = front ? Math.PI : TAU;
+
+    ctx.save();
+    ctx.scale(1, .34);
+
+    for (let i = 0; i < 70; i++) {
+      const fraction = i / 69;
+
+      if (fraction > .61 && fraction < .68) continue;
+
+      const r = radius * (1.27 + fraction * .93);
+      const brightness = 145 + Math.sin(i * 2.7) * 22 + fraction * 40;
+
+      ctx.strokeStyle =
+        `rgba(${brightness + 20},${brightness + 8},${brightness - 24},${front ? .78 : .44})`;
+
+      ctx.lineWidth = radius * .017;
+      ctx.beginPath();
+      ctx.arc(0, 0, r, start, end);
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  function drawMoon(ctx, x, y, radius, front) {
+    const gradient = ctx.createRadialGradient(
+      x - radius * .4,
+      y - radius * .4,
+      0,
+      x, y, radius
+    );
+
+    gradient.addColorStop(0, "#e5e7e9");
+    gradient.addColorStop(.5, "#9d9da8");
+    gradient.addColorStop(1, "#202331");
+
+    ctx.save();
+    ctx.globalAlpha = front ? 1 : .55;
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, TAU);
+    ctx.fill();
+
+    ctx.fillStyle = "#40445355";
+    ctx.beginPath();
+    ctx.arc(x - radius * .2, y + radius * .2, radius * .22, 0, TAU);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawPlanet(planet) {
+    if (!planet.width || !planet.height) return;
+
+    renderSphere(planet);
+
+    const ctx = planet.ctx;
+    const w = planet.width;
+    const h = planet.height;
+    const saturn = planet.type === "saturn";
+
+    const radius = Math.min(
+      w * (saturn ? .18 : .25),
+      h * .27
+    );
+
+    const bob = Math.sin(elapsed * .8 + planet.phase) * 7;
+
+    const halo = planet.type === "earth" ? "80,160,255" :
+      planet.type === "neptune" ? "71,121,255" : "218,183,125";
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    ctx.translate(w / 2, h / 2 + bob);
+
+    ctx.rotate(
+      saturn
+        ? -.35 + Math.sin(elapsed * .25) * .055
+        : -.14
+    );
+
+    const orbitRadius = radius * (saturn ? 2.45 : 1.65);
+    const moonAngle = elapsed * .65 + planet.phase;
+    const moonX = Math.cos(moonAngle) * orbitRadius;
+    const moonY = Math.sin(moonAngle) * orbitRadius * .4;
+    const front = Math.sin(moonAngle) >= 0;
+
+    ctx.strokeStyle = `rgba(${halo},.13)`;
+    ctx.lineWidth = .7;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, orbitRadius, orbitRadius * .4, 0, 0, TAU);
+    ctx.stroke();
+
+    for (const dust of planet.dust) {
+      const angle = dust.phase + elapsed * .1;
+      const distance = orbitRadius * dust.radius;
+
+      ctx.fillStyle = `rgba(${halo},${.2 + .15 * Math.sin(angle * 3)})`;
+      ctx.beginPath();
+      ctx.arc(
+        Math.cos(angle) * distance,
+        Math.sin(angle) * distance * .65,
+        dust.size,
+        0, TAU
+      );
+      ctx.fill();
+    }
+
+    if (!front) {
+      drawMoon(ctx, moonX, moonY, saturn ? 3 : 4.5, false);
+    }
+
+    glow(ctx, 0, 0, radius * 1.5, [
+      [0, `rgba(${halo},0)`],
+      [.61, `rgba(${halo},0)`],
+      [.68, `rgba(${halo},.18)`],
+      [.83, `rgba(${halo},.045)`],
+      [1, `rgba(${halo},0)`]
+    ]);
+
+    if (saturn) drawRings(ctx, radius, false);
+
+    ctx.drawImage(
+      planet.buffer,
+      -radius, -radius,
+      radius * 2, radius * 2
+    );
+
+    if (saturn) drawRings(ctx, radius, true);
+
+    if (front) {
+      drawMoon(ctx, moonX, moonY, saturn ? 3 : 4.5, true);
+    }
+
+    ctx.restore();
+  }
+
+  // Only animate planet canvases near the viewport.
+  const planetObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      const planet = planets.find(p => p.canvas === entry.target);
+
+      if (planet) {
+        planet.visible = entry.isIntersecting;
+        if (planet.visible) drawPlanet(planet);
+      }
+    }
+  }, { rootMargin: "100px" });
+
+  planets.forEach(planet => planetObserver.observe(planet.canvas));
+
+  // Reveal content once when it enters the viewport.
+  const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+
+      entry.target.classList.remove("waiting");
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  }, { threshold: .12 });
+
+  document.querySelectorAll(".reveal").forEach(element => {
+    if (!motionPreference.matches) element.classList.add("waiting");
+    revealObserver.observe(element);
+  });
+
+  // Mouse-driven card tilt and light.
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("pointermove", event => {
+      if (
+        !finePointer.matches ||
+        !running ||
+        motionPreference.matches
+      ) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = clamp((event.clientX - rect.left) / rect.width, 0, 1);
+      const y = clamp((event.clientY - rect.top) / rect.height, 0, 1);
+
+      card.style.setProperty("--rx", `${(y - .5) * -10}deg`);
+      card.style.setProperty("--ry", `${(x - .5) * 12}deg`);
+      card.style.setProperty("--mx", `${x * 100}%`);
+      card.style.setProperty("--my", `${y * 100}%`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--mx", "50%");
+      card.style.setProperty("--my", "30%");
+    });
+  });
+
+  function resize() {
+    width = innerWidth;
+    height = innerHeight;
+
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+
+    universe.width = Math.round(width * dpr);
+    universe.height = Math.round(height * dpr);
+    space.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    for (const planet of planets) {
+      const rect = planet.canvas.getBoundingClientRect();
+
+      planet.width = rect.width;
+      planet.height = rect.height;
+
+      planet.canvas.width = Math.round(rect.width * dpr);
+      planet.canvas.height = Math.round(rect.height * dpr);
+      planet.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      drawPlanet(planet);
+    }
+
+    drawSpace();
+  }
+
+  function animate(time) {
+    frame = 0;
+
+    if (!running || document.hidden) return;
+
+    const delta = lastTime
+      ? Math.min((time - lastTime) / 1000, .05)
+      : 0;
+
+    lastTime = time;
+    elapsed += delta;
+
+    const smoothing = 1 - Math.exp(-5 * delta);
+    camera.x += (pointer.x - camera.x) * smoothing;
+    camera.y += (pointer.y - camera.y) * smoothing;
+
+    updateMeteors(delta);
+    drawSpace();
+
+    // Limit texture updates to 24 fps.
+    if (elapsed - lastPlanetTime >= 1 / 24) {
+      for (const planet of planets) {
+        if (planet.visible) drawPlanet(planet);
+      }
+
+      lastPlanetTime = elapsed;
+    }
+
+    frame = requestAnimationFrame(animate);
+  }
+
+  function updateMotion() {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    lastTime = 0;
+
+    document.body.classList.toggle("paused", !running);
+
+    motionButton.textContent = running
+      ? "Pause motion"
+      : "Play motion";
+
+    if (!running) {
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
+      });
+    }
+
+    drawSpace();
+    planets.forEach(drawPlanet);
+
+    if (running && !document.hidden) {
+      frame = requestAnimationFrame(animate);
+    }
+  }
+
+  motionButton.addEventListener("click", () => {
+    running = !running;
+    updateMotion();
+  });
+
+  motionPreference.addEventListener("change", event => {
+    running = !event.matches;
+
+    if (event.matches) {
+      document.querySelectorAll(".reveal").forEach(element => {
+        element.classList.remove("waiting");
+        element.classList.add("visible");
+      });
+    }
+
+    updateMotion();
+  });
+
+  document.addEventListener("visibilitychange", updateMotion);
+  window.addEventListener("resize", resize);
+
+  resize();
+  updateMotion();
+})();
+</script>
+</body>
+</html>
