@@ -1,314 +1,402 @@
 # AstroVerse 🚀
 
-**Explore Beyond Imagination.**
+## Explore Beyond Imagination
 
-AstroVerse is an interactive space exploration website being developed
-by five college students. It combines educational content, animated
-3D experiences, space missions, quizzes, and cosmic discoveries.
+AstroVerse is an interactive space exploration website built with HTML, CSS, JavaScript and Three.js.
+
+Explore the solar system, examine individual planets, discover space missions, test your knowledge and learn about the universe.
 
 ## Project Status
 
-Development is in progress.
+Development and integration are in progress.
 
-All five members have cloned the shared repository and configured
-their Git identities.
-
-Sajid's Cosmic Discoveries module has been reviewed by Roshan and
-merged into main through Pull Request #1. The team has confirmed
-that category filtering and the random-fact button work.
-Homepage integration is pending.
-
-The Solar System, Planet Explorer, Space Missions, quiz, and homepage
-are still being developed. Their final completion and integration
-have not yet been verified.
-
-The feature descriptions below represent the project's planned scope.
-
-## Team and Responsibilities
-
-| Member | Role | Assigned Branch |
+| Module | Contributor | Current status |
 | --- | --- | --- |
-| Roshan | Team Lead, Repository Manager, README, Homepage and Integration | main |
-| Aman | Solar System Developer | feature/solar-system |
-| Wahab | Planet Explorer Developer | feature/planet-explorer |
-| Aarav | Space Missions and Quiz Developer | feature/space-missions |
-| Sajid | Cosmic Discoveries Developer | feature/cosmic-discoveries |
+| Solar System | Aman | Feature merged through PR #2 |
+| Planet Explorer | Wahab | Feature merged through PR #3 |
+| Space Missions and Quiz | Aarav | Feature merged through PR #4 |
+| Cosmic Discoveries | Sajid | Feature merged through PR #1 |
+| Cosmic Visual Effects | Ayush | Preview development and testing in progress |
+| Homepage and Navigation | Roshan | Final integration pending |
+| Complete Website Testing | All members | Pending final integration |
 
-### Roshan — Team Lead
+Feature-level testing has been reported by the team. Complete testing across the integrated website remains pending.
 
-- Manage the repository and collaborator access.
-- Maintain the README.
-- Coordinate the team.
-- Review and merge approved Pull Requests.
-- Develop the homepage.
-- Coordinate integration and final verification.
+## Meet the Team
+
+AstroVerse has six contributors.
+
+### Roshan — Team Lead and Repository Manager
+
+- Manage the GitHub repository.
+- Maintain project documentation.
+- Coordinate development.
+- Review and merge feature Pull Requests.
+- Build and coordinate the homepage.
+- Integrate navigation and approved visual effects.
+- Coordinate final testing and deployment.
 
 ### Aman — Solar System Developer
 
-- Develop the animated Sun and eight planets.
-- Implement planetary orbits and rotation.
-- Add interactive planet selection.
-- Create the solar system's space background.
+- Create the animated Sun.
+- Display all eight planets.
+- Implement orbital movement and planet rotation.
+- Apply planet textures.
+- Add planet selection and information.
+- Build the solar system's star background.
+
+Branch — `feature/solar-system`
+
+Assigned files
+
+- `solar-system.html`
+- `CSS/solar-system.css`
+- `JavaScript/solar-system.js`
+- `assets/textures/solar-system/`
 
 ### Wahab — Planet Explorer Developer
 
-- Develop individual planet exploration.
-- Add planet information and facts.
-- Create interactive 3D planet models.
-- Implement zoom and rotation controls.
+- Build interactive views of all eight planets.
+- Display planet descriptions and facts.
+- Reuse the project's planet textures.
+- Add mouse and touch rotation.
+- Add zoom, pause and reset controls.
+- Display Saturn's rings.
+- Support mobile layouts.
+
+Branch — `feature/planet-explorer`
+
+Assigned files
+
+- `planet-explorer.html`
+- `CSS/explorer.css`
+- `JavaScript/explorer.js`
 
 ### Aarav — Space Missions and Quiz Developer
 
-- Present space mission information.
-- Build a quiz with at least 10 questions.
-- Implement XP points and achievements.
-- Develop leaderboard functionality.
-- Animate the quiz interface.
+- Display educational space mission cards.
+- Build a quiz with ten questions.
+- Show answer explanations.
+- Award XP for completed quizzes.
+- Track achievements.
+- Maintain a leaderboard in browser storage.
+- Build responsive quiz interactions and animations.
+
+Branch — `feature/space-missions`
+
+Assigned files
+
+- `space-missions.html`
+- `CSS/missions.css`
+- `JavaScript/missions.js`
 
 ### Sajid — Cosmic Discoveries Developer
 
-- Present facts about galaxies, black holes, stars, nebulae,
-  comets, asteroids, and exoplanets.
-- Create responsive fact cards.
-- Implement category filters.
+- Create educational discovery cards.
+- Cover galaxies, black holes, stars, nebulae, comets, asteroids and exoplanets.
+- Add category filters and a result count.
 - Add a random-fact button.
-- Add hover effects and accessible controls.
+- Avoid immediate repetition of random facts.
+- Support responsive layouts and keyboard interaction.
 
-## Planned Website Features
+Branch — `feature/cosmic-discoveries`
 
-### Homepage
+Assigned files
 
-- AstroVerse branding and navigation.
-- Animated space hero section.
-- Explore Universe button.
-- Links to all four feature pages.
-- About section and footer.
+- `cosmic-discoveries.html`
+- `CSS/cosmic-discoveries.css`
+- `JavaScript/cosmic-discoveries.js`
+
+### Ayush — Visual Effects and Scroll Animation Developer
+
+- Build an independent visual effects preview.
+- Create animated nebula backgrounds and shooting stars.
+- Add section reveals and hover effects.
+- Develop scroll-controlled hero animations.
+- Integrate photographic space artwork into the preview.
+- Support reduced-motion preferences.
+- Test effects before Roshan integrates them into the homepage.
+
+Branch — `feature/cosmic-effects`
+
+Assigned files
+
+- `effects-preview.html`
+- `CSS/cosmic-effects.css`
+- `JavaScript/cosmic-effects.js`
+- `assets/textures/cosmic-effects/`
+
+Ayush's visual effects are currently being developed and checked. The photographic hero's image path and display still require verification.
+
+## Features
 
 ### Solar System
 
-- Animated Sun and all eight planets.
+- Animated Sun with a procedural surface and glowing corona.
+- Eight textured planets.
 - Orbital movement and planet rotation.
-- Interactive planet selection.
-- Textured planetary surfaces.
-- Animated space background.
+- Saturn's rings.
+- Star background.
+- Planet selection with an information panel.
+- Responsive rendering and reduced-motion support.
 
-Planet sizes, distances, and animation speeds are adjusted for viewing
-and are not to scale.
+Planet sizes, orbital distances and speeds are adjusted for viewing and are not scientifically to scale.
 
 ### Planet Explorer
 
-- Individual exploration of all eight planets.
-- Interactive 3D models.
-- Planet information and facts.
-- Zoom and rotation interactions.
+- Individual views of all eight planets.
+- Textured 3D models.
+- Planet selection and educational facts.
+- Mouse and touch dragging.
+- Zoom and rotation controls.
+- Pause and reset controls.
+- A simplified representation of Saturn's rings.
+
+Planet models use a common viewing size for exploration.
 
 ### Space Missions and Quiz
 
-- Educational space mission information.
-- A quiz containing at least 10 questions.
-- Score calculations and XP points.
-- Achievements and leaderboard functionality.
-- Animated question and result interfaces.
+- Mission cards covering Apollo 11, Chandrayaan-3 and Voyager 1.
+- Ten quiz questions with explanations.
+- XP awarded after quiz completion.
+- First Flight, Star Navigator and Perfect Orbit achievements.
+- Player names, best scores and attempt tracking.
+- A leaderboard stored in the current browser.
 
-The leaderboard's storage approach is still to be decided.
+Quiz progress uses localStorage. Saved records belong to the browser and website origin where the quiz is played. Clearing browser storage removes saved records. If browser storage is unavailable, progress can continue for the current page session.
 
 ### Cosmic Discoveries
 
-- Seven educational fact categories.
-- Category filters with an updated result count.
-- A random-fact button that avoids immediate repeats.
-- Responsive fact cards.
-- Keyboard focus styles and reduced-motion support.
+- Seven space fact categories.
+- Educational fact cards.
+- Category filtering.
+- Updated result counts.
+- Random facts with immediate-repeat prevention.
+- Responsive styling and reduced-motion support.
 
-Status: Merged into main. Homepage integration pending.
+### Visual Effects Preview
 
-## Technology Stack
+Ayush's preview includes work on
+
+- Animated nebula backgrounds.
+- Shooting stars.
+- Floating artwork.
+- Section reveal animations.
+- Card and button hover effects.
+- Scroll-controlled hero zoom and text fading.
+- A photographic space hero.
+
+Final appearance, image loading and integration are still being verified.
+
+## Technology
 
 | Technology | Purpose |
 | --- | --- |
-| HTML5 | Page structure and content |
-| CSS3 | Styling, responsive layouts, and visual effects |
-| JavaScript | Interactions, filters, quiz logic, and animation |
-| Three.js | 3D scenes and planetary models |
-| GSAP | Planned interface and transition animations |
-| Git | Local version control and individual commits |
-| GitHub | Shared repository, Pull Requests, and reviews |
+| HTML5 | Page structure and accessible content |
+| CSS3 | Layout, responsive design and visual effects |
+| JavaScript | Interactions, quiz logic and animation control |
+| Three.js | Solar System and Planet Explorer rendering |
+| localStorage | Browser-based quiz records |
+| Git and GitHub | Version control, reviews and collaboration |
 | Python HTTP server | Local development preview |
 
-Three.js is used in the Solar System implementation.
-GSAP integration has not yet been verified.
+The 3D modules use Three.js version `0.180.0`, loaded from a CDN.
 
-## File Ownership
+Internet access is required to load the CDN library. GSAP has not been added to the current implementation.
 
-### Roshan
+## Project Files
 
-- README.md
-- index.html
-- CSS/style.css
-- JavaScript/main.js
+| Page or asset | Location |
+| --- | --- |
+| Solar System page | `solar-system.html` |
+| Solar System styles | `CSS/solar-system.css` |
+| Solar System script | `JavaScript/solar-system.js` |
+| Planet Explorer page | `planet-explorer.html` |
+| Planet Explorer styles | `CSS/explorer.css` |
+| Planet Explorer script | `JavaScript/explorer.js` |
+| Space Missions page | `space-missions.html` |
+| Space Missions styles | `CSS/missions.css` |
+| Space Missions script | `JavaScript/missions.js` |
+| Cosmic Discoveries page | `cosmic-discoveries.html` |
+| Cosmic Discoveries styles | `CSS/cosmic-discoveries.css` |
+| Cosmic Discoveries script | `JavaScript/cosmic-discoveries.js` |
+| Visual Effects preview | `effects-preview.html` |
+| Visual Effects styles | `CSS/cosmic-effects.css` |
+| Visual Effects script | `JavaScript/cosmic-effects.js` |
+| Planet textures | `assets/textures/solar-system/` |
+| Visual Effects artwork | `assets/textures/cosmic-effects/` |
 
-### Aman
+Ayush's preview files are under development on his feature branch. Their availability depends on the branch being viewed.
 
-- solar-system.html
-- CSS/solar-system.css
-- JavaScript/solar-system.js
-- assets/textures/solar-system/
+The integrated homepage is still pending.
 
-### Wahab
+## Run Locally on macOS
 
-- planet-explorer.html
-- CSS/explorer.css
-- JavaScript/explorer.js
-
-### Aarav
-
-- space-missions.html
-- CSS/missions.css
-- JavaScript/missions.js
-
-### Sajid
-
-- cosmic-discoveries.html
-- CSS/cosmic-discoveries.css
-- JavaScript/cosmic-discoveries.js
-
-This list describes assigned ownership. Some planned files and assets
-may not yet be present in main.
-
-Folder capitalization must match exactly, including CSS and JavaScript.
-
-## Collaboration Workflow
-
-1. Every member uses their own GitHub account and local clone.
-2. Feature developers work on their assigned branches.
-3. Members edit their own assigned files.
-4. Each developer independently stages, commits, and pushes their work.
-5. Each developer creates a Pull Request targeting main.
-6. Roshan reviews the code and feature demonstration.
-7. Roshan merges approved Pull Requests.
-8. Members safely synchronize their local copies after merges.
-9. Roshan coordinates homepage and shared navigation changes.
-
-Feature developers must not push their feature work directly to main.
-
-Check git status before staging, committing, or switching branches.
-Preserve uncommitted work before synchronizing.
-Report unfamiliar merge conflicts before attempting a resolution.
-Do not force-push shared branches.
-
-## Local Preview
-
-A working installation of Python 3 is needed for this preview method.
-
-Open Terminal inside your cloned AstroVerse folder and run:
+1. Clone the repository using your GitHub account.
+2. Open the cloned `AstroVerse` folder in VS Code.
+3. Select **Terminal → New Terminal**.
+4. Confirm that the terminal is inside the project folder containing the HTML files.
+5. Start the local server.
 
     python3 -m http.server 8000 --bind 127.0.0.1
 
-Keep the Terminal running while previewing.
+6. Keep that terminal running.
+7. Open a page using the links below.
 
-Open a page that exists on your current branch:
+| Page | Local URL |
+| --- | --- |
+| Solar System | http://127.0.0.1:8000/solar-system.html |
+| Planet Explorer | http://127.0.0.1:8000/planet-explorer.html |
+| Space Missions | http://127.0.0.1:8000/space-missions.html |
+| Cosmic Discoveries | http://127.0.0.1:8000/cosmic-discoveries.html |
+| Visual Effects preview | http://127.0.0.1:8000/effects-preview.html |
 
-- Solar System: http://127.0.0.1:8000/solar-system.html
-- Planet Explorer: http://127.0.0.1:8000/planet-explorer.html
-- Space Missions: http://127.0.0.1:8000/space-missions.html
-- Cosmic Discoveries: http://127.0.0.1:8000/cosmic-discoveries.html
+The Visual Effects preview requires Ayush's files to be present in the local checkout.
 
-A page may be unavailable on main until its feature PR is merged.
+If port 8000 is occupied, start the server on port 8001.
 
-Press Control + C in the server Terminal to stop the preview server.
+    python3 -m http.server 8001 --bind 127.0.0.1
 
-An internet connection is required when loading Three.js from its CDN.
+Then use `8001` in the browser URLs.
 
-## Testing Checklist
+Stop the server by pressing **Control + C** in its terminal.
 
-### Homepage and Integration
+Each member runs the server on their own computer. A localhost link opens the server running on the computer where the link is used.
 
-- [ ] Homepage displays correctly.
-- [ ] Navigation connects all four feature pages.
-- [ ] All links, buttons, images, and script paths work.
-- [ ] No browser console errors occur.
+## Collaboration Workflow
 
-### Solar System
+1. Confirm the repository folder and current branch before making changes.
+2. Develop assigned features on the contributor's own feature branch.
+3. Stage the intended files using their exact paths.
+4. Check the staged changes.
+5. Create commits with the contributor's correct Git identity.
+6. Push the feature branch.
+7. Create a Pull Request targeting `main`.
+8. Roshan reviews the changes and checks the feature.
+9. Roshan merges the approved Pull Request.
+10. Members safely synchronize their local `main` after the merge.
 
-- [ ] Sun and all eight planets render correctly.
-- [ ] Planetary orbits and rotation work.
-- [ ] Planet textures load.
+Feature contributors must use their own branches and Pull Requests.
+
+Shared-file and homepage changes are coordinated by Roshan. Preserve local work before switching branches or synchronizing.
+
+## Pull Requests
+
+| Pull Request | Contributor | Feature | Reported status |
+| --- | --- | --- | --- |
+| [PR #1](https://github.com/ROSHAN-IN/AstroVerse/pull/1) | Sajid | Cosmic Discoveries | Merged |
+| [PR #2](https://github.com/ROSHAN-IN/AstroVerse/pull/2) | Aman | Solar System | Merged |
+| [PR #3](https://github.com/ROSHAN-IN/AstroVerse/pull/3) | Wahab | Planet Explorer | Merged |
+| [PR #4](https://github.com/ROSHAN-IN/AstroVerse/pull/4) | Aarav | Space Missions and Quiz | Merged |
+
+Ayush's Pull Request will be added after his preview is tested and submitted.
+
+## Design and Accessibility
+
+- Dark navy backgrounds.
+- Cyan, blue and purple accents.
+- Glass-style cards.
+- Responsive page layouts.
+- Keyboard focus indicators.
+- Skip links.
+- Reduced-motion support.
+- Decorative layers that allow interaction with page controls.
+
+Final accessibility and performance checks will take place after integration.
+
+## Credits and References
+
+### Planet Textures
+
+Planet textures were obtained from Solar System Scope.
+
+Source — https://www.solarsystemscope.com/textures/
+
+License — Creative Commons Attribution 4.0 International.
+
+License details — https://creativecommons.org/licenses/by/4.0/
+
+Retain texture attribution when sharing or publishing the project.
+
+### Three.js
+
+Three.js is used for interactive 3D rendering.
+
+Website — https://threejs.org/
+
+License — https://github.com/mrdoob/three.js/blob/dev/LICENSE
+
+### Space Mission References
+
+Apollo 11 — https://www.nasa.gov/history/apollo-11-mission-overview/
+
+Chandrayaan-3 — https://www.isro.gov.in/Chandrayaan3.html
+
+Voyager — https://science.nasa.gov/mission/voyager/
+
+### Visual Effects Artwork
+
+The supplied space artwork includes a visible credit to Doğan Ural.
+
+Record the original source and applicable usage permission or license before publishing this artwork. Preserve the creator attribution.
+
+## Final Integration Checklist
+
+- [ ] Complete and test Ayush's visual effects preview.
+- [ ] Verify the photographic hero's image path.
+- [ ] Review and merge Ayush's Pull Request.
+- [ ] Synchronize Roshan's local repository.
+- [ ] Build or complete the homepage.
+- [ ] Connect all four educational feature pages.
+- [ ] Integrate approved visual effects.
+- [ ] Add consistent navigation.
+- [ ] Verify all CSS, JavaScript and image paths.
+- [ ] Check links and buttons.
+- [ ] Check the browser console.
+- [ ] Test mobile, tablet and desktop layouts.
+- [ ] Check animation performance and reduced-motion behavior.
+- [ ] Update documentation to match the final website.
+
+## Final Testing Checklist
+
+- [ ] Solar System renders and animates.
 - [ ] Planet selection updates the information panel.
-- [ ] The scene resizes correctly.
+- [ ] All eight planet textures load.
+- [ ] Planet Explorer selection and facts work.
+- [ ] Dragging, zoom, pause and reset work.
+- [ ] Mission cards and reference links work.
+- [ ] All ten quiz questions work.
+- [ ] Explanations and final results display correctly.
+- [ ] XP is awarded once per completed attempt.
+- [ ] Achievements update correctly.
+- [ ] Saved quiz records and leaderboard work.
+- [ ] Cosmic Discoveries filters work.
+- [ ] Random facts work.
+- [ ] Visual effects work with scrolling and keyboard navigation.
+- [ ] Reduced-motion preferences are respected.
+- [ ] Existing features work after integration.
 
-### Planet Explorer
+## College Submission
 
-- [ ] Planet selection works.
-- [ ] Facts match the selected planet.
-- [ ] 3D models load.
-- [ ] Zoom and rotation controls work.
+Prepare the following before submission.
 
-### Space Missions and Quiz
+- Final repository URL.
+- Approved and merged feature Pull Requests.
+- Individual contribution records for all six members.
+- Screenshots or recordings of the completed features.
+- Final demonstration checklist.
+- Project presentation.
+- Deployment URL, if deployed.
+- Faculty approval documentation for the six-member team.
 
-- [ ] Mission information displays correctly.
-- [ ] The quiz includes at least 10 questions.
-- [ ] Answers and score calculations work.
-- [ ] XP and achievements work.
-- [ ] Leaderboard behavior is implemented and clearly explained.
-- [ ] Quiz restart and completion flows work.
+If the original worksheet specifies three to four members, record the faculty-approved arrangement for the expanded team.
 
-### Cosmic Discoveries
+## Repository
 
-- [x] HTML content displays.
-- [x] Styling loads.
-- [x] Category filters work.
-- [x] The random-fact button works.
-- [ ] Keyboard interactions are verified.
-- [ ] Mobile and desktop layouts are verified.
-- [ ] Browser console is checked for errors.
-- [ ] Homepage navigation is connected.
-
-### Final Team Verification
-
-- [ ] All required files are present in main.
-- [ ] All feature Pull Requests are reviewed and merged.
-- [ ] Individual contributions are documented.
-- [ ] Responsive layouts are checked across the website.
-- [ ] Final demonstration is prepared.
-
-Checked items reflect functionality confirmed by the team during development.
-
-## Pull Requests and Contribution Evidence
-
-Repository:
 https://github.com/ROSHAN-IN/AstroVerse
 
-| Member | Contribution | Pull Request | Status |
-| --- | --- | --- | --- |
-| Roshan | Repository setup and README | Not applicable to initial setup | Initial README committed and pushed |
-| Aman | Solar System | To be added | PR status not yet confirmed |
-| Wahab | Planet Explorer | To be added | PR status not yet confirmed |
-| Aarav | Space Missions and Quiz | To be added | PR status not yet confirmed |
-| Sajid | Cosmic Discoveries | [PR #1](https://github.com/ROSHAN-IN/AstroVerse/pull/1) | Reviewed by Roshan and merged |
+---
 
-Each member should retain their commit history, feature PR URL,
-and a demonstration of their assigned module.
+Built by Roshan, Aman, Wahab, Aarav, Sajid and Ayush.
 
-## Asset Credits
-
-When using the Solar System Scope planet textures, retain their credit:
-
-Planet textures by [Solar System Scope](https://www.solarsystemscope.com/textures/),
-licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-
-Additional asset sources and licenses will be recorded as assets are added.
-
-## College Submission Checklist
-
-- [ ] Public repository URL.
-- [ ] All four feature Pull Request URLs.
-- [ ] Individual contribution evidence for all five members.
-- [ ] Updated README.
-- [ ] Completed testing checklist.
-- [ ] Final project demonstration.
-- [ ] Short presentation explaining the project and each member's work.
-- [ ] Faculty approval for the additional fifth member confirmed.
-
-The original worksheet may specify a team size of three to four students.
-Five-member participation requires faculty confirmation.
-Approval has not yet been recorded in this README.
+**AstroVerse — Explore Beyond Imagination.**
