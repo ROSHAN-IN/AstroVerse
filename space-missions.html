@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Explore historic space missions and test your knowledge with AstroVerse's space quiz.">
+  <title>Space Missions | AstroVerse</title>
+  <link rel="stylesheet" href="CSS/missions.css">
+  <script src="JavaScript/missions.js?v=72" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <span class="brand">AstroVerse</span>
+    <span class="page-label">Space Missions</span>
+  </header>
+
+  <main id="main-content">
+    <section class="page-intro" aria-labelledby="page-title">
+      <p class="eyebrow">Human curiosity. Cosmic possibilities.</p>
+      <h1 id="page-title">Follow the missions.<br>Fuel your curiosity.</h1>
+      <p>Discover remarkable journeys, then put your space knowledge to work.</p>
+      <a class="primary-link" href="#quiz-title">Take the space challenge</a>
+    </section>
+
+    <section class="missions-section" aria-labelledby="missions-title">
+      <h2 id="missions-title">Journeys that changed our perspective</h2>
+
+      <div id="mission-grid" class="mission-grid">
+        <article class="mission-card">
+          <p class="eyebrow">NASA · 1969</p>
+          <h3>Apollo 11</h3>
+          <p>
+            Neil Armstrong and Buzz Aldrin landed on the Moon on
+            July 20, 1969. Michael Collins remained in lunar orbit.
+          </p>
+          <a href="https://www.nasa.gov/history/apollo-11-mission-overview/">
+            Explore Apollo 11 ↗
+          </a>
+        </article>
+
+        <article class="mission-card">
+          <p class="eyebrow">ISRO · 2023</p>
+          <h3>Chandrayaan-3</h3>
+          <p>
+            India's Vikram lander reached the lunar surface on
+            August 23, 2023, carrying the Pragyan rover.
+          </p>
+          <a href="https://www.isro.gov.in/Chandrayaan3.html">
+            Explore Chandrayaan-3 ↗
+          </a>
+        </article>
+
+        <article class="mission-card">
+          <p class="eyebrow">NASA · Launched 1977</p>
+          <h3>Voyager 1</h3>
+          <p>
+            After encounters with Jupiter and Saturn, Voyager 1 became
+            the first spacecraft to enter interstellar space in 2012.
+          </p>
+          <a href="https://science.nasa.gov/mission/voyager/interstellar-mission/">
+            Explore Voyager ↗
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="quiz-section" aria-labelledby="quiz-title">
+      <p class="eyebrow">Your next challenge</p>
+      <h2 id="quiz-title">How well do you know the universe?</h2>
+      <p>10 questions. 10 XP per correct answer. Progress is saved on completion.</p>
+
+      <form id="start-form">
+        <label for="player-name">Explorer name</label>
+        <div class="start-row">
+          <input id="player-name" type="text" maxlength="24"
+                 autocomplete="nickname" placeholder="Enter your name"
+                 required>
+          <button class="primary-button" type="submit">Start quiz</button>
+        </div>
+      </form>
+
+      <div id="quiz-active" hidden>
+        <div class="quiz-meta">
+          <span id="question-counter"></span>
+          <span id="quiz-score"></span>
+        </div>
+
+        <label class="sr-only" for="quiz-progress">Quiz progress</label>
+        <progress id="quiz-progress" max="10" value="0"></progress>
+
+        <h3 id="question-text" tabindex="-1"></h3>
+        <div id="answer-options" class="answer-options"
+             role="group" aria-labelledby="question-text"></div>
+
+        <p id="answer-feedback" role="status" aria-atomic="true"></p>
+        <button id="next-question" class="primary-button"
+                type="button" disabled>
+          Next question
+        </button>
+      </div>
+
+      <div id="quiz-result" class="quiz-result" hidden>
+        <h3 id="result-title" tabindex="-1">Mission complete</h3>
+        <p id="result-summary"></p>
+        <p>Your profile and local leaderboard have been updated below.</p>
+      </div>
+
+      <noscript>
+        <p>Enable JavaScript to play the quiz and save your results.</p>
+      </noscript>
+    </section>
+
+    <section class="progress-section" aria-labelledby="progress-title">
+      <h2 id="progress-title">Your exploration log</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>Explorer</span>
+          <strong id="profile-name">No completed quiz yet</strong>
+        </div>
+        <div class="stat-card">
+          <span>Total XP</span>
+          <strong id="total-xp">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Best score</span>
+          <strong id="best-score">0 / 10</strong>
+        </div>
+      </div>
+
+      <h3>Achievements</h3>
+      <ul id="achievement-list" class="achievement-list"></ul>
+      <p id="storage-message" role="status"></p>
+    </section>
+
+    <section class="leaderboard-section" aria-labelledby="leaderboard-title">
+      <h2 id="leaderboard-title">Local leaderboard</h2>
+      <p>
+        Results belong to this browser and site address.
+        Use the same explorer name to build your profile.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <caption class="sr-only">
+            Explorers ranked by best score, then total XP
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Explorer</th>
+              <th scope="col">Best score</th>
+              <th scope="col">XP</th>
+              <th scope="col">Quizzes</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>AstroVerse — Explore Beyond Imagination.</p>
+    <p>Mission information linked to NASA and ISRO.</p>
+  </footer>
+</body>
+</html>
