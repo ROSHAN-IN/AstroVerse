@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Explore eight textured planets with interactive rotation, zoom, and space facts.">
+  <title>Planet Explorer | AstroVerse</title>
+  <link rel="stylesheet" href="CSS/explorer.css">
+  <script src="JavaScript/explorer.js?v=63" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <span class="brand">AstroVerse</span>
+    <span class="page-label">Planet Explorer</span>
+  </header>
+
+  <main id="main-content">
+    <section class="page-intro" aria-labelledby="page-title">
+      <p class="eyebrow">Get closer to the extraordinary</p>
+      <h1 id="page-title">Every planet has a story.</h1>
+      <p>Choose a world. Turn it around. Discover what makes it remarkable.</p>
+    </section>
+
+    <section class="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <h2 id="experience-title">Discover a world</h2>
+        <label class="planet-picker">
+          <span>Choose a planet</span>
+          <select id="planet-select" disabled>
+            <option value="Earth">Earth</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="planet-view" aria-busy="true">
+        <p class="scene-placeholder">Preparing your planet…</p>
+      </div>
+
+      <p id="viewer-status" role="status" aria-atomic="true">
+        Loading the 3D viewer…
+      </p>
+
+      <fieldset id="viewer-controls" disabled>
+        <legend>Planet controls</legend>
+        <div class="controls-row">
+          <button id="rotate-left" type="button">Rotate left</button>
+          <button id="rotate-right" type="button">Rotate right</button>
+          <button id="toggle-rotation" type="button" aria-pressed="false">
+            Auto-rotate
+          </button>
+          <button id="reset-view" type="button">Reset view</button>
+        </div>
+
+        <label class="zoom-control">
+          <span>Zoom</span>
+          <input id="zoom" type="range" min="0" max="100" value="35">
+        </label>
+      </fieldset>
+
+      <p class="viewer-help">
+        Drag the planet to rotate it. On a touchscreen, drag with one finger.
+        You can also use the rotation buttons and zoom slider.
+      </p>
+    </section>
+
+    <section class="planet-details" aria-labelledby="planet-name">
+      <p class="eyebrow">Planet profile</p>
+      <h2 id="planet-name">Earth</h2>
+      <p id="planet-description">
+        Earth is the third planet from the Sun and the only world
+        currently known to support life.
+      </p>
+
+      <dl class="planet-facts">
+        <div>
+          <dt>Planet type</dt>
+          <dd id="planet-type">Terrestrial</dd>
+        </div>
+        <div>
+          <dt>Position from the Sun</dt>
+          <dd id="planet-position">Third</dd>
+        </div>
+      </dl>
+
+      <div class="discovery-note">
+        <h3>Did you know?</h3>
+        <p id="planet-fact">Earth has liquid water oceans on its surface.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>AstroVerse — Explore Beyond Imagination.</p>
+    <p>
+      Planet textures by
+      <a href="https://www.solarsystemscope.com/textures/">Solar System Scope</a>,
+      licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      Models are displayed at a common viewing size.
+    </p>
+  </footer>
+</body>
+</html>
