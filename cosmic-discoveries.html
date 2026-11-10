@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Discover galaxies, black holes, stars, and worlds beyond our solar system.">
+  <title>Cosmic Discoveries | AstroVerse</title>
+  <link rel="stylesheet" href="CSS/cosmic-discoveries.css">
+  <script src="JavaScript/cosmic-discoveries.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <span class="brand">AstroVerse</span>
+    <span class="page-label">Cosmic Discoveries</span>
+  </header>
+
+  <main id="main-content">
+    <section class="page-intro" aria-labelledby="page-title">
+      <p class="eyebrow">Beyond our solar system</p>
+      <h1 id="page-title">A universe of unexpected discoveries.</h1>
+      <p>
+        From stellar nurseries to distant worlds,
+        explore the science behind extraordinary places.
+      </p>
+    </section>
+
+    <section class="random-section" aria-labelledby="random-title">
+      <div>
+        <p class="eyebrow">Let curiosity choose</p>
+        <h2 id="random-title">Where will you explore next?</h2>
+        <p id="random-fact" role="status" aria-atomic="true">
+          Random discoveries will be available once interactions are connected.
+        </p>
+      </div>
+      <!-- JavaScript will enable this button when it is ready. -->
+      <button id="random-fact-button" type="button" disabled>
+        Discover a Random Fact
+      </button>
+    </section>
+
+    <section class="discoveries-section" aria-labelledby="discoveries-title">
+      <h2 id="discoveries-title">Explore cosmic discoveries</h2>
+
+      <!-- Enable filtering after the JavaScript handlers are attached. -->
+      <fieldset id="category-filters" class="category-filters" disabled>
+        <legend>Choose a category</legend>
+        <button type="button" data-filter="all" aria-pressed="true">
+          All discoveries
+        </button>
+        <button type="button" data-filter="galaxies" aria-pressed="false">
+          Galaxies
+        </button>
+        <button type="button" data-filter="black-holes" aria-pressed="false">
+          Black Holes
+        </button>
+        <button type="button" data-filter="stars" aria-pressed="false">
+          Stars
+        </button>
+        <button type="button" data-filter="nebulae" aria-pressed="false">
+          Nebulae
+        </button>
+        <button type="button" data-filter="comets" aria-pressed="false">
+          Comets
+        </button>
+        <button type="button" data-filter="asteroids" aria-pressed="false">
+          Asteroids
+        </button>
+        <button type="button" data-filter="exoplanets" aria-pressed="false">
+          Exoplanets
+        </button>
+      </fieldset>
+
+      <p id="results-count" class="results-count" role="status">
+        Showing 7 discoveries
+      </p>
+
+      <div id="fact-grid" class="fact-grid">
+        <article class="fact-card" data-category="galaxies">
+          <p class="eyebrow">Galaxies</p>
+          <h3>Our home has spiral arms.</h3>
+          <p class="fact-text">
+            The Milky Way is a barred spiral galaxy.
+            Our solar system sits in its disk, far from the galactic centre.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="black-holes">
+          <p class="eyebrow">Black Holes</p>
+          <h3>A boundary light cannot escape.</h3>
+          <p class="fact-text">
+            A black hole's event horizon marks a boundary beyond which
+            light cannot escape to distant observers.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="stars">
+          <p class="eyebrow">Stars</p>
+          <h3>Starlight begins with fusion.</h3>
+          <p class="fact-text">
+            During the main stage of their lives, stars produce energy
+            by fusing hydrogen into helium in their cores.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="nebulae">
+          <p class="eyebrow">Nebulae</p>
+          <h3>Some clouds build new stars.</h3>
+          <p class="fact-text">
+            Nebulae are clouds of gas and dust in space.
+            Some contain regions where gravity gathers material into new stars.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="comets">
+          <p class="eyebrow">Comets</p>
+          <h3>A comet can grow two tails.</h3>
+          <p class="fact-text">
+            Near the Sun, a comet can develop a dust tail and an ion tail.
+            The ion tail points away from the Sun because of the solar wind.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="asteroids">
+          <p class="eyebrow">Asteroids</p>
+          <h3>Remnants of the solar system's beginnings.</h3>
+          <p class="fact-text">
+            Asteroids are remnants from the early solar system.
+            Most orbit in the main asteroid belt between Mars and Jupiter.
+          </p>
+        </article>
+
+        <article class="fact-card" data-category="exoplanets">
+          <p class="eyebrow">Exoplanets</p>
+          <h3>Distant worlds can reveal themselves in shadows.</h3>
+          <p class="fact-text">
+            Astronomers can detect some exoplanets by measuring the small
+            drop in a star's brightness when a planet passes in front of it.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <noscript>
+      <p>
+        Enable JavaScript to use category filters and random discoveries.
+        You can still read all the facts above.
+      </p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p>AstroVerse — Explore Beyond Imagination.</p>
+  </footer>
+</body>
+</html>
